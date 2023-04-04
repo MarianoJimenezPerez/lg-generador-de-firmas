@@ -1,5 +1,5 @@
 {
-  "name": "lg-generador-firmas",
+  "name": "back",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -11,16 +11,16 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.7.1",
-    "@strapi/plugin-users-permissions": "4.7.1",
-    "@strapi/plugin-i18n": "4.7.1",
+    "@strapi/strapi": "4.9.0",
+    "@strapi/plugin-users-permissions": "4.9.0",
+    "@strapi/plugin-i18n": "4.9.0",
     "better-sqlite3": "8.0.1"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "77241a70-42bc-45aa-ae76-1073e206b022"
+    "uuid": "91c2c7ed-878d-421e-ad10-774e67c44ecd"
   },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",

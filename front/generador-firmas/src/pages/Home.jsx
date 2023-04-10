@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
             voluptatem architecto. Beatae.
           </p>
         </div>
-        <button className="btn-primary">¡Empecemos!</button>
+        <Link to={`/sign`}><button className="btn-primary">¡Empecemos!</button></Link>
       </div>
       <div className="home_logo">
         <img src="/latamly_group_logo.png" alt="Logo latamly group" />

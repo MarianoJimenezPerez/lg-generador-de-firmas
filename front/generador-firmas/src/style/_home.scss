@@ -1,4 +1,7 @@
 @import "variables";
+
+$notebook: 1366px;
+
 :root {
     font-family: 'Raleway', sans-serif;
     line-height: 1.5;
@@ -21,6 +24,8 @@ body {
     display: flex;
     place-items: center;
     min-width: 320px;
+    height: 100vh;
+    overflow-y: hidden;
 }
 #root {
     max-width: 1280px;
@@ -39,17 +44,24 @@ body {
         background-color: #ffffff;
         border-radius: 50%;
         border: 1px solid $red;
-        width: 600px;
+        width: 480px;
         height: auto;
         padding: 180px;
+        @media screen and (max-width: $notebook) {
+            padding: 90px;
+            width: 420px;
+            gap: 20px;
+        }
         h1{
             font-size: 2.5rem;
             font-weight: 500;
-            margin-top: -40px;
             margin-bottom: 120px;
+            @media screen and (max-width: $notebook) {
+                margin-bottom: 0;
+            }
         }
         .home_welcome_box{
-            width: 600px;
+            width: 48   0px;
             border-radius: 20px;
             border: 1px solid $red;
             h2{
@@ -74,6 +86,9 @@ body {
             border-radius: 80px;
             padding: 20px 20px;
             font-weight: 600;
+            @media screen and (max-width: $notebook) {
+                margin-top: 0;
+            }
         }
         .btn-primary{
             background-color: #ffffff;
@@ -90,5 +105,8 @@ body {
         position: absolute;
         right: -20px;
         bottom: 0;
+        @media screen and (max-width: $notebook) {
+            right: -80px;
+        }
     }
 }

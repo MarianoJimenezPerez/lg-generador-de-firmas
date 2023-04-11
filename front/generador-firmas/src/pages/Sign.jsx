@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Header from "../components/Header/Header";
 
 const Sign = () => {
   return (
-    <div>Sign</div>
-  )
-}
+    <div>
+      <Header />
+      Sign
+    </div>
+  );
+};
 
-export default Sign
+export default Sign;

@@ -9,9 +9,14 @@
 
 // Importar los archivos de estilos de pages
 @import "./pages/home";
+@import "./pages/sign";
 
 // Importar los archivos de estilos de componentes
 @import "./components/header";
+@import "./components/form";
+@import "./components/signContainer";
+@import "./components/signResult";
+@import "./components/cta";
 
 // Importar los archivos de estilos de utilidades
 

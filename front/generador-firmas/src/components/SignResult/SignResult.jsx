@@ -7,6 +7,10 @@ import {
   AiFillLinkedin,
 } from "react-icons/all";
 import logo from "./../../assets/latamly_group_logo.png";
+import web from "./../../assets/web.png";
+import telephone from "./../../assets/telephone.png";
+import marker from "./../../assets/marker.png";
+import linkedin from "./../../assets/linkedin.png";
 
 const SignResult = () => {
   const { state } = useContext(UserContext);
@@ -68,12 +72,16 @@ const SignResult = () => {
                 paddingBottom: "3px",
                 width: "50%",
                 display: "flex",
+                alignItems: "center",
                 gap: "8px",
                 fontSize: "17px",
               }}
             >
               {" "}
-              <BsFillTelephoneFill style={{ color: "#FF0000" }} />
+              <img
+                src={telephone}
+                style={{ objectFit: "contain", width: "18px" }}
+              />
               {data.telefono}
             </td>
           </tr>
@@ -96,12 +104,16 @@ const SignResult = () => {
                 paddingBottom: "3px",
                 width: "50%",
                 display: "flex",
+                alignItems: "center",
                 gap: "8px",
                 fontSize: "17px",
               }}
             >
               {" "}
-              <AiOutlineGlobal style={{ color: "#FF0000" }} />
+              <img
+                src={web}
+                style={{ objectFit: "contain", width: "18px", height: "18px" }}
+              />
               https://latamly.com
             </td>
           </tr>
@@ -124,11 +136,15 @@ const SignResult = () => {
                 paddingBottom: "3px",
                 width: "50%",
                 display: "flex",
+                alignItems: "center",
                 gap: "8px",
                 fontSize: "17px",
               }}
             >
-              <FaMapMarkerAlt style={{ color: "#FF0000" }} />
+              <img
+                src={marker}
+                style={{ objectFit: "contain", width: "18px", height: "18px" }}
+              />
               {data.pais}
             </td>
           </tr>
@@ -144,7 +160,10 @@ const SignResult = () => {
             }}
           >
             <td style={{ paddingTop: "15px" }}>
-              <AiFillLinkedin style={{ color: "#000000", fontSize: "22px" }} />
+              <img
+                src={linkedin}
+                style={{ objectFit: "contain", width: "18px", height: "18px" }}
+              />
             </td>
             <td style={{ paddingTop: "15px" }}>
               <img src={logo} style={{ width: "150px" }} />

@@ -1,4 +1,6 @@
 .sign{
+    display: flex;
+    flex-direction: column;
     .sign__wrapper{
         display: flex;
         gap: 40px;

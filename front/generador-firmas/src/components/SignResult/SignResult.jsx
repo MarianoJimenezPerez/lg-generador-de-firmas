@@ -20,20 +20,6 @@ const SignResult = () => {
     setData(state.data);
   }, [state.data]);
 
-  const handleCopy = () => {
-    const sign = document.querySelector(".sign__result").outerHTML;
-    const temp = document.createElement("div");
-    temp.innerHTML = sign;
-    document.body.appendChild(temp);
-    const range = document.createRange();
-    range.selectNodeContents(temp);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    selection.removeAllRanges();
-    document.body.removeChild(temp);
-  };
 
   return (
     <div
@@ -171,7 +157,6 @@ const SignResult = () => {
           </tr>
         </tfoot>
       </table>
-      <button onClick={handleCopy}>Copy</button>
     </div>
   );
 };

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "marcas",
+  "info": {
+    "singularName": "marca",
+    "pluralName": "marcas",
+    "displayName": "marca"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "img": {
+      "type": "string"
+    }
+  }
+}

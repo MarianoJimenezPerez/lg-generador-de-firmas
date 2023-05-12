@@ -20,7 +20,6 @@ const SignResult = () => {
     setData(state.data);
   }, [state.data]);
 
-
   return (
     <div
       style={{
@@ -152,7 +151,7 @@ const SignResult = () => {
               />
             </td>
             <td style={{ paddingTop: "15px" }}>
-              <img src={logo} style={{ width: "150px" }} />
+              <img src={data.marca} style={{ width: "150px" }} />
             </td>
           </tr>
         </tfoot>

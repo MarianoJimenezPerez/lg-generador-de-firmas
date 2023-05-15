@@ -1,16 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../reducers/userReducer";
-import {
-  BsFillTelephoneFill,
-  AiOutlineGlobal,
-  FaMapMarkerAlt,
-  AiFillLinkedin,
-} from "react-icons/all";
-import logo from "./../../assets/latamly_group_logo.png";
-import web from "./../../assets/web.png";
 import telephone from "./../../assets/telephone.png";
+import web from "./../../assets/web.png";
 import marker from "./../../assets/marker.png";
 import linkedin from "./../../assets/linkedin.png";
+import { Link } from "react-router-dom";
 
 const SignResult = () => {
   const { state } = useContext(UserContext);
@@ -18,6 +12,7 @@ const SignResult = () => {
 
   useEffect(() => {
     setData(state.data);
+    console.log(state);
   }, [state.data]);
 
   return (
@@ -35,6 +30,7 @@ const SignResult = () => {
           width: "max-content",
           minWidth: "530px",
           textAlign: "left",
+          fontFamily: `${data?.marca?.attributes?.font}`,
         }}
       >
         <tbody style={{ width: "100%" }}>
@@ -42,7 +38,7 @@ const SignResult = () => {
             <td
               style={{
                 width: "50%",
-                borderRight: "1px solid #FF0000",
+                borderRight: `1px solid ${data?.marca?.attributes?.color}`,
                 fontSize: "24px",
                 fontWeight: 600,
                 paddingRight: "25px",
@@ -63,18 +59,29 @@ const SignResult = () => {
               }}
             >
               {" "}
-              <img
-                src={telephone}
-                style={{ objectFit: "contain", width: "18px" }}
-              />
-              {data.telefono}
+              <Link
+                to={`tel:${data.telefono}`}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                <img
+                  src={`${data?.marca?.attributes?.telephoneImg}` || telephone}
+                  style={{ objectFit: "contain", width: "18px" }}
+                />
+                {data.telefono}
+              </Link>
             </td>
           </tr>
           <tr style={{ display: "flex", width: "100%", alignItems: "center" }}>
             <td
               style={{
                 width: "50%",
-                borderRight: "1px solid #FF0000",
+                borderRight: `1px solid ${data?.marca?.attributes?.color}`,
                 fontSize: "23px",
                 paddingRight: "25px",
                 paddingBottom: "3px",
@@ -94,19 +101,34 @@ const SignResult = () => {
                 fontSize: "17px",
               }}
             >
-              {" "}
-              <img
-                src={web}
-                style={{ objectFit: "contain", width: "18px", height: "18px" }}
-              />
-              https://latamly.com
+              <Link
+                to={`${data?.marca?.attributes.web}`}
+                target="_blank"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                <img
+                  src={`${data?.marca?.attributes?.webImg}` || web}
+                  style={{
+                    objectFit: "contain",
+                    width: "18px",
+                    height: "18px",
+                  }}
+                />
+                {data?.marca?.attributes?.web}
+              </Link>
             </td>
           </tr>
           <tr style={{ display: "flex", width: "100%", alignItems: "center" }}>
             <td
               style={{
                 width: "50%",
-                borderRight: "1px solid #FF0000",
+                borderRight: `1px solid ${data?.marca?.attributes?.color}`,
                 fontSize: "24px",
                 paddingRight: "25px",
                 paddingBottom: "3px",
@@ -127,7 +149,7 @@ const SignResult = () => {
               }}
             >
               <img
-                src={marker}
+                src={`${data?.marca?.attributes?.markerImg}` || marker}
                 style={{ objectFit: "contain", width: "18px", height: "18px" }}
               />
               {data.pais}
@@ -151,7 +173,10 @@ const SignResult = () => {
               />
             </td>
             <td style={{ paddingTop: "15px" }}>
-              <img src={data.marca} style={{ width: "150px" }} />
+              <img
+                src={data?.marca?.attributes?.img}
+                style={{ width: "150px" }}
+              />
             </td>
           </tr>
         </tfoot>

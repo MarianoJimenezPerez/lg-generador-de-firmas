@@ -4,7 +4,8 @@
   "info": {
     "singularName": "marca",
     "pluralName": "marcas",
-    "displayName": "marca"
+    "displayName": "marca",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,18 @@
       "type": "string"
     },
     "img": {
+      "type": "string"
+    },
+    "telephoneImg": {
+      "type": "string"
+    },
+    "markerImg": {
+      "type": "string"
+    },
+    "webImg": {
+      "type": "string"
+    },
+    "font": {
       "type": "string"
     }
   }

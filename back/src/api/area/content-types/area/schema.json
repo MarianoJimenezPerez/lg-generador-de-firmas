@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "areas",
+  "info": {
+    "singularName": "area",
+    "pluralName": "areas",
+    "displayName": "area"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "positions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::position.position",
+      "mappedBy": "area"
+    }
+  }
+}

@@ -12,7 +12,6 @@ const SignResult = () => {
 
   useEffect(() => {
     setData(state.data);
-    console.log(state);
   }, [state.data]);
 
   return (

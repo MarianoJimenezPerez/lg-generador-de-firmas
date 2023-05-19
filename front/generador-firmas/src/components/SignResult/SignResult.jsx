@@ -76,15 +76,21 @@ const SignResult = () => {
               </Link>
             </td>
           </tr>
-          <tr style={{ display: "flex", width: "100%", alignItems: "center" }}>
+          <tr
+            style={{
+              display: "flex",
+              width: "100%",
+              alignItems: "center",
+            }}
+          >
             <td
               style={{
                 width: "50%",
                 borderRight: `1px solid ${data?.marca?.attributes?.color}`,
-                fontSize: "23px",
+                fontSize: "20px",
                 paddingRight: "25px",
-                paddingBottom: "3px",
-                fontWeight: 400,
+                paddingTop: "18px",
+                fontWeight: 500,
               }}
             >
               {data.cargo}
@@ -92,7 +98,7 @@ const SignResult = () => {
             <td
               style={{
                 paddingLeft: "25px",
-                paddingBottom: "3px",
+                paddingTop: "18px",
                 width: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -128,10 +134,10 @@ const SignResult = () => {
               style={{
                 width: "50%",
                 borderRight: `1px solid ${data?.marca?.attributes?.color}`,
-                fontSize: "24px",
+                fontSize: "12px",
                 paddingRight: "25px",
                 paddingBottom: "3px",
-                fontWeight: 400,
+                fontWeight: 500,
               }}
             >
               {data.area}

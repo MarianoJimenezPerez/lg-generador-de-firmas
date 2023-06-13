@@ -6,7 +6,6 @@ import { makeRequest } from "../../utils/makeRequest";
 
 const Form = () => {
   const [inputValues, setInputValues] = useState({});
-  const [showInputs, setShowInputs] = useState(false);
   const [positions, setPositions] = useState([]);
   const [fileInputDisabled, setFileInputDisabled] = useState(true);
   const [fileUpload, setFileUpload] = useState(null);
@@ -26,6 +25,7 @@ const Form = () => {
       type: "CHANGE_DATA",
       payload: {
         data: {
+          ...state.data,
           ...inputValues,
           marca: marcaSeleccionada ? marcaSeleccionada : state.data.marca,
         },
@@ -40,7 +40,6 @@ const Form = () => {
       [name]: value,
     }));
     if (name === "marca") {
-      setShowInputs(true);
       setMarcaSeleccionada(
         data.find((marca) => marca.attributes.title === value)
       );
@@ -48,7 +47,6 @@ const Form = () => {
     if (name === "area") {
       const result = data2.find((el) => el.attributes.title === e.target.value);
       setPositions(result.attributes.positions.data);
-      setShowInputs(true);
     }
 
     if (name === "image") {
@@ -67,10 +65,10 @@ const Form = () => {
                 name: response.data[0].name,
                 url: response.data[0].url,
               };
-              const imageUrl = data.url;
               setInputValues((prevInputValues) => ({
                 ...prevInputValues,
-                imageUrl: imageUrl,
+                imageName: data.name,
+                imageUrl: data.url,
               }));
               setFileUpload(response.data[0]);
               const res = await makeRequest.post("/employeds", { data });
@@ -97,6 +95,9 @@ const Form = () => {
             name="marca"
             id="marca"
             className="input"
+            style={{
+              color: state?.data?.marca ? "#000000" : "rgba(0,0,0,0.4)",
+            }}
             onChange={handleInputChange}
           >
             <option defaultValue={"Marca"} selected disabled>
@@ -104,13 +105,17 @@ const Form = () => {
             </option>
             {data &&
               data.map((marca) => (
-                <option value={marca.attributes.title} key={marca.id}>
+                <option
+                  value={marca.attributes.title}
+                  key={marca.id}
+                  style={{ color: "#000000" }}
+                >
                   {marca.attributes.title}
                 </option>
               ))}
           </select>
         </p>
-        {showInputs && (
+        {state?.data?.marca && (
           <>
             <p>
               <input
@@ -119,6 +124,7 @@ const Form = () => {
                 id="nombre"
                 name="nombre"
                 placeholder="Nombre"
+                value={state.data.nombre ? state.data.nombre : ""}
                 onChange={handleInputChange}
               />{" "}
             </p>
@@ -129,6 +135,7 @@ const Form = () => {
                 id="apellido"
                 name="apellido"
                 placeholder="Apellido"
+                value={state.data.apellido ? state.data.apellido : ""}
                 onChange={handleInputChange}
               />
             </p>
@@ -137,6 +144,9 @@ const Form = () => {
                 name="area"
                 id="area"
                 className="input"
+                style={{
+                  color: state.data.area ? "#000000" : "rgba(0,0,0,0.4)",
+                }}
                 onChange={handleInputChange}
               >
                 <option selected disabled>
@@ -144,7 +154,11 @@ const Form = () => {
                 </option>
                 {data2 &&
                   data2.map((area2) => (
-                    <option value={area2.attributes.title} key={area2.id}>
+                    <option
+                      value={area2.attributes.title}
+                      key={area2.id}
+                      style={{ color: "#000000" }}
+                    >
                       {area2.attributes.title}
                     </option>
                   ))}
@@ -155,6 +169,9 @@ const Form = () => {
                 name="cargo"
                 id="cargo"
                 className="input"
+                style={{
+                  color: state?.data?.cargo ? "#000000" : "rgba(0,0,0,0.4)",
+                }}
                 onChange={handleInputChange}
               >
                 <option selected disabled>
@@ -166,6 +183,7 @@ const Form = () => {
                       <option
                         value={position.attributes.title}
                         key={position.id}
+                        style={{ color: "#000000" }}
                       >
                         {position.attributes.title}
                       </option>
@@ -180,6 +198,7 @@ const Form = () => {
                 id="telefono"
                 name="telefono"
                 placeholder="Teléfono"
+                value={state.data.telefono ? state.data.telefono : ""}
                 onChange={handleInputChange}
               />
             </p>
@@ -189,6 +208,7 @@ const Form = () => {
                 placeholder="País o región"
                 name="pais"
                 className="input"
+                value={state.data.pais ? state.data.pais : ""}
                 onChange={handleInputChange}
               />
             </p>
@@ -207,7 +227,7 @@ const Form = () => {
                 <label
                   htmlFor="archivo"
                   style={
-                    fileInputDisabled
+                    fileInputDisabled && !state.data.imageName
                       ? {
                           color: "rgb(170, 170, 170)",
                           cursor: "no-drop",
@@ -216,8 +236,8 @@ const Form = () => {
                       : { cursor: "pointer", padding: "0" }
                   }
                 >
-                  {fileUpload
-                    ? fileUpload.name
+                  {fileUpload || state.data.imageName
+                    ? fileUpload?.name || state.data.imageName
                     : fileInputDisabled
                     ? "¿Deseas foto en tu firma?"
                     : "Selecciona tu foto de linkedin"}
@@ -229,6 +249,7 @@ const Form = () => {
                     type="checkbox"
                     name="image"
                     id="image"
+                    checked={state.data.imageName && true}
                     onChange={handleInputChange}
                   />
                   <span></span>

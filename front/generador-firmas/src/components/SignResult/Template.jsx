@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Template = ({ data }) => {
   return (
     <table
       style={{
-        fontFamily: `${data?.marca?.attributes?.font}`,
+        fontFamily: `${data?.data?.marca?.attributes?.font}`,
         lineHeight: "15px",
         paddingTop: "5px",
         background: "transparent",
@@ -15,14 +16,14 @@ const Template = ({ data }) => {
           <td
             width="90"
             style={{
-              borderRight: `1px solid ${data?.marca?.attributes?.color}`,
+              borderRight: `1px solid ${data?.data?.marca?.attributes?.color}`,
               paddingRight: "20px",
               alignItems: "flex-start",
             }}
           >
             <table>
               <tbody>
-                {data?.imageUrl && (
+                {data?.data?.imageUrl && (
                   <tr>
                     <td
                       style={{
@@ -32,7 +33,7 @@ const Template = ({ data }) => {
                       }}
                     >
                       <img
-                        src={`http://localhost:1337${data?.imageUrl}`}
+                        src={`http://localhost:1337${data?.data?.imageUrl}`}
                         alt=""
                         style={{ width: "100%", objectFit: "cover" }}
                       />
@@ -42,7 +43,7 @@ const Template = ({ data }) => {
                 <tr>
                   <td>
                     <img
-                      src={data?.marca?.attributes?.img}
+                      src={data?.data?.marca?.attributes?.img}
                       style={{
                         width: "90px",
                         display: "block",
@@ -73,7 +74,7 @@ const Template = ({ data }) => {
                         marginBottom: "0px",
                       }}
                     >
-                      {data?.nombre} {data?.apellido}
+                      {data?.data?.nombre} {data?.data?.apellido}
                     </h1>
                   </td>
                 </tr>
@@ -87,7 +88,7 @@ const Template = ({ data }) => {
                         marginTop: "8px",
                       }}
                     >
-                      {data?.area}
+                      {data?.data?.area}
                     </p>
                   </td>
                 </tr>
@@ -101,7 +102,7 @@ const Template = ({ data }) => {
                         marginTop: "8px",
                       }}
                     >
-                      {data?.cargo}
+                      {data?.data?.cargo}
                     </p>
                   </td>
                 </tr>
@@ -111,20 +112,20 @@ const Template = ({ data }) => {
             <br />
             <table style={{ background: "transparent" }}>
               <tbody>
-                {data?.telefono && (
+                {data?.data?.telefono && (
                   <tr>
                     <td>
                       <a
-                        href={`tel:${data?.telefono}`}
+                        href={`tel:${data?.data?.telefono}`}
                         style={{
                           fontSize: "12px",
-                          color: `${data?.marca?.attributes?.color}`,
+                          color: `${data?.data?.marca?.attributes?.color}`,
                           cursor: "pointer",
                           textDecoration: "none",
                         }}
                       >
                         <img
-                          src={data?.marca?.attributes?.telephoneImg}
+                          src={data?.data?.marca?.attributes?.telephoneImg}
                           alt=""
                           style={{
                             width: "12px",
@@ -132,12 +133,12 @@ const Template = ({ data }) => {
                             marginRight: "5px",
                           }}
                         />
-                        {data?.telefono}
+                        {data?.data?.telefono}
                       </a>
                     </td>
                   </tr>
                 )}
-                {data?.marca?.attributes?.web && (
+                {data?.data?.marca?.attributes?.web && (
                   <tr>
                     <td>
                       {" "}
@@ -145,12 +146,12 @@ const Template = ({ data }) => {
                         style={{
                           fontSize: "12px",
                           textDecoration: "none",
-                          color: `${data?.marca?.attributes?.color}`,
+                          color: `${data?.data?.marca?.attributes?.color}`,
                         }}
-                        href={data?.marca?.attributes?.web}
+                        href={data?.data?.marca?.attributes?.web}
                       >
                         <img
-                          src={data?.marca?.attributes?.webImg}
+                          src={data?.data?.marca?.attributes?.webImg}
                           alt=""
                           style={{
                             width: "12px",
@@ -158,23 +159,23 @@ const Template = ({ data }) => {
                             marginRight: "5px",
                           }}
                         />
-                        {data?.marca?.attributes?.web}
+                        {data?.data?.marca?.attributes?.web}
                       </a>
                     </td>
                   </tr>
                 )}
 
-                {data?.pais && (
+                {data?.data?.pais && (
                   <tr>
                     <td>
                       <p
                         style={{
                           fontSize: "12px",
-                          color: `${data?.marca?.attributes?.color}`,
+                          color: `${data?.data?.marca?.attributes?.color}`,
                         }}
                       >
                         <img
-                          src={data?.marca?.attributes?.markerImg}
+                          src={data?.data?.marca?.attributes?.markerImg}
                           alt=""
                           style={{
                             width: "12px",
@@ -182,15 +183,43 @@ const Template = ({ data }) => {
                             marginRight: "5px",
                           }}
                         />
-                        {data?.pais}
+                        {data?.data?.pais}
                       </p>
+                    </td>
+                  </tr>
+                )}
+                {data?.data?.marca && (
+                  <tr>
+                    <td>
+                      <a
+                        href="https://www.linkedin.com/company/latamly/mycompany/"
+                        style={{
+                          textDecoration: "none",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontSize: "12px",
+                            color: `#000000`,
+                          }}
+                        >
+                          <img
+                            src="https://latamly.s3.sa-east-1.amazonaws.com/generador-de-firmas/linkedin.svg"
+                            alt=""
+                            style={{
+                              width: "18px",
+                              height: "18px",
+                              marginRight: "5px",
+                              marginTop: "10px",
+                            }}
+                          />
+                        </p>
+                      </a>
                     </td>
                   </tr>
                 )}
               </tbody>
             </table>
-
-            <div style={{ marginTop: "3px" }}></div>
           </td>
         </tr>
       </tbody>

@@ -15,11 +15,9 @@
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  max-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
   .btn__primary {
     background-color: #ffffff;
     color: $primary-text-color;

@@ -7,6 +7,10 @@ import Cta from "../components/CTA/Cta";
 const Sign = () => {
   return (
     <div className="sign">
+      <div className="error">
+        Ups. Parece que la resolución de tu dispositivo no es compatible con
+        nuestra herramienta
+      </div>
       <Header />
       <div className="sign__wrapper">
         <Form />

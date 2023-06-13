@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../reducers/userReducer";
-import Template1 from "./Template1";
 import Template from "./Template";
 
 const SignResult = () => {
   const { state } = useContext(UserContext);
-  const [data, setData] = useState(state.data);
+  /*   const [data, setData] = useState(state.data);
 
   useEffect(() => {
     setData(state.data);
-  }, [state.data]);
+    console.log(data);
+  }, [state.data]); */
 
   return (
     <div
@@ -19,8 +19,9 @@ const SignResult = () => {
         justifyContent: "center",
         alignItems: "center",
       }}
+      className="sign__result"
     >
-      {data && <Template data={data} />}
+      {state && <Template data={state} />}
     </div>
   );
 };

@@ -33,7 +33,7 @@ const Template = ({ data }) => {
                       }}
                     >
                       <img
-                        src={`http://localhost:1337${data?.data?.imageUrl}`}
+                        src={`http://52.203.96.105:1337/${data?.data?.imageUrl}`}
                         alt=""
                         style={{ width: "100%", objectFit: "cover" }}
                       />
